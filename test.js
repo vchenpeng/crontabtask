@@ -10,7 +10,7 @@ let $ = new Env('TEST')
 axios.get(`https://www.17917.cn`);
 axios.get(`https://www.wyids.com/pay/p/test`);
 axios.get(`http://www.cip.cc`).then(res => {
-  console.log(res);
+  console.log(res.data);
 });
 
 function getUserInfo () {
