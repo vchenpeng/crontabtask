@@ -7,11 +7,13 @@ cron "0/35 * * * * *" script-path= test.js,tag= 临时测试
 const axios = require('axios');
 
 let $ = new Env('TEST')
-axios.get(`https://www.17917.cn`);
-axios.get(`https://www.wyids.com/pay/p/test`);
-axios.get(`http://www.cip.cc`).then(res => {
-  console.log(res.data);
-});
+
+async function queryIp () {
+  await axios.get(`http://www.cip.cc`).then(res => {
+    console.log(res.data);
+    return res.data;
+  });
+}
 
 function getUserInfo () {
   // const cookie = 'pt_key=AAJjKeAhADCE0s-rl0lvGiBxei3JJGm6dRI5-7dBmerMR4YpAsP7kXrFAtVqiMrlP8VoMU5Q-fg;pt_pin=sha1249075595;'
@@ -60,8 +62,12 @@ function getUserInfo () {
 main()
 
 async function main () {
+  console.log('测试开始')
   await getUserInfo()
-  console.log('end', $.get)
+  await queryIp()
+  axios.get(`https://www.17917.cn`);
+  axios.get(`https://www.wyids.com/pay/p/test`);
+  console.log('测试结束')
 }
 
 function CryptoScripts () {
