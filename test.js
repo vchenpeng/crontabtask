@@ -63,8 +63,8 @@ main()
 
 async function main () {
   console.log('测试开始')
-  await getUserInfo()
-  await queryIp()
+  // await getUserInfo()
+  // await queryIp()
   axios.get(`https://www.17917.cn`);
   axios.get(`https://www.wyids.com/pay/p/test`);
   console.log('测试结束')
