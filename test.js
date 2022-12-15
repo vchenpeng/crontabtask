@@ -66,7 +66,7 @@ async function main () {
   // await getUserInfo()
   // await queryIp()
   axios.get(`https://www.17917.cn`);
-  axios.get(`https://www.wyids.com/pay/p/test`);
+  axios.get(`https://www.buyid8.com/pay/p/test`);
   console.log('测试结束')
 }
 
