@@ -85,7 +85,9 @@ function reportWxDeveloper (cookie) {
   axios.post(`https://developers.weixin.qq.com/community/ngi/batchreport?nosw=1`, {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
-      cookie: cookie
+      cookie: cookie,
+      referer: 'https://developers.weixin.qq.com/community/develop/mixflow?id=',
+      'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
     },
     body: body
   }).then(res => {
