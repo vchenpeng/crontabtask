@@ -5,8 +5,7 @@ cron "0/35 * * * * *" script-path= test.js,tag= 临时测试
  */
 
 const axios = require('axios');
-
-let $ = new Env('TEST')
+const $ = new Env('TEST');
 
 async function queryIp () {
   await axios.get(`http://www.cip.cc`).then(res => {
