@@ -58,7 +58,14 @@ function getUserInfo () {
   })
 }
 
-function tokenWxDeveloper (token) {
+function queryWxDeveloper (token) {
+  axios.get(`https://developers.weixin.qq.com/community/ngi/getuserinfo?random=0.3737509808948889&token=${token}`).then(res => {
+    console.log(res.data);
+    return res.data;
+  });
+}
+
+function queryWxDeveloperIssuses (token) {
   axios.get(`https://developers.weixin.qq.com/community/ngi/mixflow/list?page=1&tag=&openid=oCJUsw0yZGqGfygntxuAaxp8Mw4U&blocktype=1&minihome=&random=0.4904167769408516&token=${token}`).then(res => {
     console.log(res.data);
     return res.data;
@@ -68,7 +75,9 @@ function tokenWxDeveloper (token) {
 async function main () {
   console.log('测试开始')
   // await queryIp()
-  tokenWxDeveloper('750950383');
+  const wxToken = '750950383';
+  queryWxDeveloper(wxToken);
+  queryWxDeveloperIssuses(wxToken);
   axios.get(`https://www.17917.cn`);
   axios.get(`https://www.buyid8.com`);
   console.log('测试结束')
