@@ -4,10 +4,11 @@
 cron "0/35 * * * * *" script-path= test.js,tag= 临时测试
  */
 
+const $ = new Env('购印权益');
 const axios = require('axios');
-const CryptoJS = require('crypto-js')
+const CryptoJS = require('crypto-js');
 const querystring = require("querystring");
-// const $ = new Env('TEST');
+
 
 const HOST = 'http://1.uy7.cn'
 const USER_ID = process.GOUYIN_USER_ID;
@@ -15,7 +16,7 @@ const USER_KEY = process.GOUYIN_USER_KEY;
 
 function genSign (params) {
   for (const key in params) {
-    if (Object.hasOwnProperty.call(object, key)) {
+    if (Object.hasOwnProperty.call(params, key)) {
       const value = object[key];
       if (!['', 'sign'].includes(params)) {
         jsArr.push(`${key}=${value}`)
