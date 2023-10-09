@@ -36,6 +36,20 @@ function genSign (params) {
   return signature;
 }
 
+async function queryBalance () {
+  let json = {
+    userid: USER_ID
+  }
+  let sign = genSign(json);
+  axios.post(`${HOST}/dockapi/index/userinfo`, qs.stringify({
+    ...json,
+    sign
+  })).then(res => {
+    console.log('账户余额', res.data);
+    return res.data;
+  });
+}
+
 async function queryGoodsList (type) {
   // userid=30774&page=1&limit=10&goodsname=2&sign=1b8e93828ecb570523e9c3adcc64a200
   let json = {
@@ -55,6 +69,7 @@ async function queryGoodsList (type) {
 }
 
 async function main () {
+  queryBalance()
   queryGoodsList(1)
 }
 
