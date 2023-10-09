@@ -9,7 +9,7 @@ cron "0/35 * * * * *" script-path= test.js,tag= 临时测试
 
 const axios = require('axios');
 const CryptoJS = require('crypto-js');
-const querystring = require("querystring");
+const qs = require("qs");
 
 
 const HOST = 'http://1.uy7.cn'
@@ -17,6 +17,7 @@ const USER_ID = process.GOUYIN_USER_ID;
 const USER_KEY = process.GOUYIN_USER_KEY;
 
 function genSign (params) {
+  let jsArr = [];
   for (const key in params) {
     if (Object.hasOwnProperty.call(params, key)) {
       const value = params[key];
@@ -40,7 +41,7 @@ async function queryGoodsList () {
   }
   let sign = genSign(json);
   console.log('gouyin', json, sign);
-  axios.post(`${HOST}/dockapi/v2/getallgoods`, querystring({
+  axios.post(`${HOST}/dockapi/v2/getallgoods`, qs.stringify({
     ...json,
     sign
   })).then(res => {
