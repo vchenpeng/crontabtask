@@ -17,7 +17,7 @@ const USER_KEY = process.GOUYIN_USER_KEY;
 function genSign (params) {
   for (const key in params) {
     if (Object.hasOwnProperty.call(params, key)) {
-      const value = object[key];
+      const value = params[key];
       if (!['', 'sign'].includes(params)) {
         jsArr.push(`${key}=${value}`)
       }
