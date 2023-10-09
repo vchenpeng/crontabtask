@@ -13,8 +13,13 @@ const qs = require("qs");
 
 
 const HOST = 'http://1.uy7.cn'
-const USER_ID = process.GOUYIN_USER_ID;
-const USER_KEY = process.GOUYIN_USER_KEY;
+const USER_ID = process.env.GOUYIN_USER_ID;
+const USER_KEY = process.env.GOUYIN_USER_KEY;
+const GOODS_TYPE_MAP = {
+    1: '【自动充值】腾讯视频',
+    2: '爱奇艺',
+    3: '知乎'
+}
 
 function genSign (params) {
   let jsArr = [];
@@ -27,20 +32,19 @@ function genSign (params) {
     }
   }
   const jsStr = jsArr.sort().join('&') + USER_KEY;
-  const signature = CryptoJS.MD5(jsStr);
+  const signature = CryptoJS.MD5(jsStr).toString();
   return signature;
 }
 
-async function queryGoodsList () {
+async function queryGoodsList (type) {
   // userid=30774&page=1&limit=10&goodsname=2&sign=1b8e93828ecb570523e9c3adcc64a200
   let json = {
     userid: USER_ID,
     page: 1,
     limit: 10,
-    goodsname: ''
+    goodsname: GOODS_TYPE_MAP[type] || ''
   }
   let sign = genSign(json);
-  console.log('gouyin', json, sign);
   axios.post(`${HOST}/dockapi/v2/getallgoods`, qs.stringify({
     ...json,
     sign
@@ -51,9 +55,7 @@ async function queryGoodsList () {
 }
 
 async function main () {
-  console.log('测试开始')
-  queryGoodsList()
-  console.log('测试结束')
+  queryGoodsList(1)
 }
 
 main()
