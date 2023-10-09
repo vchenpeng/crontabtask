@@ -35,7 +35,7 @@ async function queryGoodsList () {
     limit: 10,
     goodsname: ''
   }
-  let sign = genSign(sign);
+  let sign = genSign(json);
   console.log('gouyin', json, sign);
   axios.post(`${HOST}/dockapi/v2/getallgoods`, querystring({
     ...json,
