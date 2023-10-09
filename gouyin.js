@@ -2,9 +2,11 @@
 自己测试一下
 
 cron "0/35 * * * * *" script-path= test.js,tag= 临时测试
- */
+============Quantumultx===============
+[task_local]
+#购印权益
+*/
 
-const $ = new Env('购印权益');
 const axios = require('axios');
 const CryptoJS = require('crypto-js');
 const querystring = require("querystring");
