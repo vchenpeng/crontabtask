@@ -101,7 +101,7 @@ function reportWxDeveloper (cookie) {
 async function main () {
   console.log('测试开始')
   // await queryIp()
-  const wxCookie = `bid=95697369-2de7-453d-828b-e562b9950831; bidjs=c0d4b0c6-838a-4924-8211-17803e88aa70; wxuin=89232480206062; pgv_pvid=7611979038; pac_uid=0_63f80d47c9542; iip=0; RK=0YWB+yQNYj; ptcz=b8e2cfe58d6b600452398c03f4a1b738f7584a4d62f1ebbc3a37e607612f4928; qq_domain_video_guid_verify=4c59295ae0d65139; tvfe_boss_uuid=7817b777df0dd0b0; _clck=3868746640|1|fer|0; ptui_loginuin=vitoc@qq.com; data_ticket=gSd4V0d2n7djSFVGtwDmTvvXAAAAAAAAAAAAAAAAAAA=; sid=Tks1dGtKdmRzNHp3V3MyclZobDJMVXVyM1pyYXJOX25Mbkx6U2d4UVpUaWtIbFRfNmxDMHA2WlNUU3VyRGZveXEzTWdIcDZENjVVSXExRUxzbmlpYVhFNFFRbGdpUU5CS1M3UW1RY25BcE5GMWlGa09hbDRuRkRCeVl2amM0cUpKV3ptRFJpNnY4Q25mQURN; user=wxid_n2u8tw0faupj12; openid=oCJUsw0yZGqGfygntxuAaxp8Mw4U; server_token=84481575; enterprise_openid=; forum_login_type=; forum_original_openid=`;
+  const wxCookie = process.env['WeChat_Open_Community_Cookie'];
   reportWxDeveloper();
   queryWxDeveloper(wxCookie);
   queryWxDeveloperIssuses(wxCookie);
