@@ -8,7 +8,8 @@ function getLowdb () {
   });
   const db = low(adapter);
   db.defaults({
-    '.etch.market': ''
+    '.etch.market': '',
+    'yiyuan': null
   }).write();
   return db;
 }
