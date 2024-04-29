@@ -17,7 +17,7 @@ const sendMsg = _.throttle(notify, 30 * 60 * 1000, {
 function queryList () {
   // const body = `apiParam=%7B%22Req%22%3A%7B%22Data%22%3A%7B%22HosId%22%3A%224200190004%22%2C%22DeptCode%22%3A%220060104%22%2C%22ParentDeptCode%22%3A%220060102%22%2C%22DoctorCode%22%3A%224628131551458%22%2C%22WorkDateStart%22%3A%222024-04-29%22%2C%22WorkDateEnd%22%3A%222024-05-05%22%2C%22HasIntro%22%3A%221%22%7D%2C%22TransactionCode%22%3A2007%7D%7D`;
   const body = `apiParam=%7B%22Req%22%3A%7B%22Data%22%3A%7B%22HosId%22%3A%224200190004%22%2C%22DeptCode%22%3A%220060104%22%2C%22ParentDeptCode%22%3A%220060102%22%2C%22DoctorCode%22%3A%223458251550547%22%2C%22WorkDateStart%22%3A%222024-04-29%22%2C%22WorkDateEnd%22%3A%222024-05-05%22%2C%22HasIntro%22%3A%221%22%7D%2C%22TransactionCode%22%3A2007%7D%7D`;
-  axios.post(`https://yyzz.zgwhfe.com/KasiteWeb/wsgw/yy/QueryClinicScheduleList/callApi.do?t=${+new Date()}`,
+  return axios.post(`https://yyzz.zgwhfe.com/KasiteWeb/wsgw/yy/QueryClinicScheduleList/callApi.do?t=${+new Date()}`,
     body,
     {
       headers: {
