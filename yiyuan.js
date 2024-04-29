@@ -58,6 +58,7 @@ function queryList () {
           console.log('暂无预约号源', Data);
         }
       }
+      return res.data;
     }).catch(err => {
       console.log('error', err.message);
     });
@@ -66,6 +67,7 @@ function queryList () {
 async function main () {
   console.log('查询开始');
   await queryList();
+  console.log('查询结束');
 }
 
 main()
