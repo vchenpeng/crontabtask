@@ -9,6 +9,7 @@ const dayjs = require('dayjs');
 const notify = require('./notify');
 const _ = require('lodash');
 
+const YIYUAN_TOKEN = process.env.YIYUAN_TOKEN;
 const beginDate = dayjs('2024-04-01');
 const sendMsg = _.throttle(notify, 30 * 60 * 1000, {
   'leading': true,
@@ -22,7 +23,7 @@ function queryList () {
     {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'token': '14e493ec8da38c2fef716b15be08b1e7'
+        'token': YIYUAN_TOKEN
       }
     }).then(res => {
       let { RespCode, Data } = res.data;
@@ -57,6 +58,8 @@ function queryList () {
         } else {
           console.log('暂无预约号源', Data);
         }
+      } else {
+        console.log(res.data);
       }
       return res.data;
     }).catch(err => {
