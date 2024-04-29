@@ -56,7 +56,7 @@ function queryList () {
           console.log(msg);
           sendMsg('45917290774@chatroom', '', msg);
         } else {
-          console.log('暂无预约号源', Data);
+          console.log('暂无预约号源');
         }
       } else {
         console.log(res.data);
