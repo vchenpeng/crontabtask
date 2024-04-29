@@ -58,12 +58,14 @@ function queryList () {
           console.log('暂无预约号源', Data);
         }
       }
+    }).catch(err => {
+      console.log('error', err.message);
     });
 }
 
 async function main () {
   console.log('查询开始');
-  queryList();
+  await queryList();
 }
 
 main()
