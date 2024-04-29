@@ -1,7 +1,7 @@
 /*
 自己测试一下
 
-cron "0/10 * * * * *" script-path= yiyuan.js,tag= 医院挂号检测
+cron "0/30 * * * * *" script-path= yiyuan.js,tag= 医院挂号检测
  */
 
 const axios = require('axios');
